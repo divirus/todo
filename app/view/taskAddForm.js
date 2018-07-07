@@ -1,6 +1,6 @@
 Ext.define('app.view.taskAddForm', {
   extend: 'Ext.window.Window',
-  itemId: 'taskAddWindow',
+  itemId: 'taskAddForm',
   title: 'Добавить задачу',
   layout: {type: 'hbox', align: 'stretch'},
   dragable: true,

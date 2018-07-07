@@ -16,6 +16,17 @@ Ext.define('app.view.tasks', {
         text: 'Удалить',
         itemId: 'deleteTask'
       },
+      '->',
+      {
+        xtype: 'button',
+        text: 'График задач',
+        itemId: 'chartTaskButton'
+      },
+      {
+        xtype: 'button',
+        text: 'История изменений',
+        itemId: 'historyTaskButton'
+      }
     ]
   },
   columns: [
@@ -23,6 +34,11 @@ Ext.define('app.view.tasks', {
       text: 'Заголовок',
       dataIndex: 'header',
       flex: 1
+    },
+    {
+      text: 'Категория',
+      dataIndex: 'category_name',
+      minWidth: 100,
     },
     {
       text: 'Статус',
@@ -35,9 +51,12 @@ Ext.define('app.view.tasks', {
       minWidth: 110
     },
     {
-      text: 'Дата обновления',
-      dataIndex: 'date_refresh',
-      minWidth: 110
-    }
+      xtype: 'checkcolumn',
+      text: 'Готово',
+      name: 'taskCheckColumn',
+      itemId: 'taskCheckColumn',
+      dataIndex: 'done',
+      width: 50,
+    },
   ]
 });

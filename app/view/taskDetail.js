@@ -10,15 +10,17 @@ Ext.define('app.view.taskDetail', {
     items: [
       {
         xtype: 'tagfield',
+        name: 'taskTags',
         itemId: 'taskTags',
         fieldLabel: 'Теги',
-        margin: '6 6 6 6'
-        // value: preselect,
-        // displayField: 'name',
-        // valueField: 'id',
-        // store: tagStore,
-        // queryMode: 'local',
-        // filterPickList: false
+        store: 'tagsStore',
+        displayField: 'tag_name',
+        valueField: 'id_tag',
+        margin: '6 6 6 6',
+        readOnly: true,
+        selectOnFocus: false,
+        editable: false
+
       }
     ],
   },
@@ -27,26 +29,30 @@ Ext.define('app.view.taskDetail', {
       {
         xtype: 'button',
         text: 'Добавить',
-        itemId: 'addTask'
+        itemId: 'addTaskDetail'
       },
       {
         xtype: 'button',
         text: 'Удалить',
-        itemId: 'deleteTask'
+        itemId: 'deleteTaskDetail'
       }
     ]
   },
   columns: [
       {
-        xtype: 'checkcolumn',
-        text: 'Готово',
-        dataIndex: 'done',
-        width: 50,
-      },
-      {
         text: '',
+        name: 'taskDetailName',
+        itemId: 'taskDetailName',
         dataIndex: 'name',
         flex: 1
+      },
+      {
+        xtype: 'checkcolumn',
+        text: 'Готово',
+        name: 'taskDetailCheckColumn',
+        itemId: 'taskDetailCheckColumn',
+        dataIndex: 'done',
+        width: 50,
       },
   ]
 });
